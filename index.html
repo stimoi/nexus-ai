@@ -91,26 +91,25 @@
         .call-to-action {
             text-align: center;
             margin-top: 40px;
-            display: flex; /* Utilisation de Flexbox */
+            display: flex;
             justify-content: center;
-            gap: 20px; /* Espace entre les boutons */
+            gap: 20px;
             flex-wrap: wrap;
         }
         
-        /* === NOUVEAU STYLE DES BOUTONS (RÉTRÉCI) === */
+        /* Style des Boutons */
         .action-button, .invite-button {
             display: inline-block;
             color: white;
-            padding: 12px 25px; /* Plus petit que l'ancienne version (15px 35px) */
+            padding: 12px 25px;
             text-decoration: none;
-            border-radius: 6px; /* Plus petit */
+            border-radius: 6px;
             font-weight: bold;
-            font-size: 1.1em; /* Plus petit */
+            font-size: 1.1em;
             transition: all 0.3s ease;
             box-shadow: 0 3px 10px rgba(0,0,0,0.3);
         }
         
-        /* Style du bouton Premium (Vert) */
         .action-button {
             background: linear-gradient(90deg, #2ecc71, #27ae60);
         }
@@ -120,7 +119,6 @@
             background: linear-gradient(90deg, #27ae60, #2ecc71);
         }
 
-        /* Style du bouton Invite (Primaire Bleu Discord) */
         .invite-button {
             background: linear-gradient(90deg, #5865F2, #4b58b4);
         }
@@ -128,6 +126,20 @@
             transform: scale(1.03);
             box-shadow: 0 4px 12px rgba(88, 101, 242, 0.6);
             background: linear-gradient(90deg, #4b58b4, #5865F2);
+        }
+        
+        /* === NOUVEAU STYLE POUR LE WIDGET TOP.GG === */
+        .vote-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px 0;
+            border-top: 1px dashed var(--border-color);
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .vote-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
         /* =========================================== */
 
@@ -243,12 +255,16 @@
 
         <div class="call-to-action">
             <a href="https://discord.com/oauth2/authorize?client_id=1423684403019780116&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="invite-button">🤖 Inviter Nexus AI sur votre Serveur</a>
-            
-            <a href="https://paypal.me/stimoi/2EUR" target="_blank" class="action-button">💳 Obtenez le Premium pour 2€ / mois</a>
+            <a href="paypal.com/paypalme/stimoi/2EUR" target="_blank" class="action-button">💳 Obtenez le Premium pour 2€ / mois</a>
         </div>
         <small style="display: block; text-align: center; margin-top: 15px; color: #a0aec0;">*Assurez-vous d'abord que le bot est sur votre serveur.</small>
-
-
+        
+        <div class="vote-section">
+            <h3 style="margin-bottom: 20px; font-size: 1.3em;">Soutenez le Projet : Votez pour Nexus AI !</h3>
+            <a href="https://top.gg/bot/1423684403019780116" target="_blank">
+                <img src="https://top.gg/api/widget/1423684403019780116.svg" alt="Widget de Vote Top.gg">
+            </a>
+        </div>
         <div class="activation-box">
             <h2>✨ Étape d'Activation Premium :</h2>
             
