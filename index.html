@@ -255,7 +255,32 @@
 
         <div class="call-to-action">
             <a href="https://discord.com/oauth2/authorize?client_id=1423684403019780116&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="invite-button">🤖 Inviter Nexus AI sur votre Serveur</a>
-            <a href="paypal.com/paypalme/stimoi/2EUR" target="_blank" class="action-button">💳 Obtenez le Premium pour 2€ / mois</a>
+            <div class="call-to-action">
+    <a href="VOTRE_LIEN_INVITATION_BOT" target="_blank" class="invite-button">🤖 Inviter Nexus AI sur votre Serveur</a>
+    
+    <div id="paypal-button-container-P-73V22856XG481950WND5KUMY" style="min-width: 250px;"></div>
+</div>
+<small style="display: block; text-align: center; margin-top: 15px; color: #a0aec0;">*Assurez-vous d'abord que le bot est sur votre serveur.</small>
+<script src="https://www.paypal.com/sdk/js?client-id=ARkhfHXZXz0ayz32CL-EpnCNuH6qFCuxTcrxC2Ne3fga9mG_rKf-FyPeshTNDwxliExDV4fvKB3fHLpf&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'blue', // J'ai mis "blue" pour un look plus moderne que "gold"
+            layout: 'vertical',
+            label: 'subscribe'
+        },
+        createSubscription: function(data, actions) {
+            // C'est ici que nous allons ajouter l'ID du serveur !
+            return actions.subscription.create({
+                plan_id: 'P-73V22856XG481950WND5KUMY'
+            });
+        },
+        onApprove: function(data, actions) {
+            alert("Abonnement réussi ! Votre Premium sera activé sous peu.");
+        }
+    }).render('#paypal-button-container-P-73V22856XG481950WND5KUMY');
+</script>
         </div>
         <small style="display: block; text-align: center; margin-top: 15px; color: #a0aec0;">*Assurez-vous d'abord que le bot est sur votre serveur.</small>
         
