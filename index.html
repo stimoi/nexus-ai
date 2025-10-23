@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI Premium | Activation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; color: #333; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #7289da; border-bottom: 2px solid #7289da; padding-bottom: 10px; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin-bottom: 10px; font-size: 1.1em; }
+        .feature-list li::before { content: '⭐'; margin-right: 10px; }
+        .warning { color: red; font-weight: bold; margin-top: 20px; border: 1px solid red; padding: 10px; border-radius: 4px; }
+        .action-button { display: inline-block; background-color: #2ecc71; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+        /* Style pour le formulaire d'activation */
+        .activation-form { margin-top: 30px; padding-top: 20px; border-top: 1px dashed #ccc; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .activation-btn { background-color: #7289da; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💎 Nexus AI Premium - 2€ / mois</h1>
+        <p>Merci de soutenir le développement de Nexus AI ! Le statut Premium est activé manuellement dans les 24h après le paiement.</p>
+        
+        <h2>Avantages pour votre Serveur :</h2>
+        <ul class="feature-list">
+            <li>IA Illimitée : Discutez avec l'IA sans utiliser de crédits.</li>
+            <li>Priorité de Traitement : Réponses plus rapides pour tous les services (Modération, IA, etc.).</li>
+            <li>Accès aux Fonctionnalités Bêta.</li>
+        </ul>
+
+        <a href="VOTRE_LIEN_DE_PAIEMENT" target="_blank" class="action-button">💳 Étape 1 : Payer 2€ maintenant</a>
+
+        <div class="activation-form">
+            <h2>Étape 2 : Confirmer l'Activation</h2>
+            
+            <div class="warning">
+                IMPORTANT : Vous devez avoir payé 2€ avant de remplir ce formulaire.
+            </div>
+
+            <form action="URL_DE_VOTRE_GOOGLE_FORM" target="_blank" method="POST">
+                
+                <label for="guild_id">ID de votre Serveur Discord (Obligatoire) :</label>
+                <input type="text" id="guild_id" name="entry.123456789" required placeholder="Clic droit sur le serveur > Copier l'ID (Mode Développeur requis)">
+                
+                <label for="username">Votre Nom d'Utilisateur Discord (pour vérification) :</label>
+                <input type="text" id="username" name="entry.987654321" required placeholder="Ex: sti_dev#1234">
+
+                <button type="submit" class="activation-btn">Envoyer les Infos et Activer</button>
+                <small style="display: block; margin-top: 10px;">L'activation est traitée manuellement dans les 24 heures par l'administrateur.</small>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
