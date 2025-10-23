@@ -13,17 +13,52 @@
         .feature-list li::before { content: '⭐'; margin-right: 10px; }
         .warning { color: red; font-weight: bold; margin-top: 20px; border: 1px solid red; padding: 10px; border-radius: 4px; }
         .action-button { display: inline-block; background-color: #2ecc71; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
-        /* Style pour le formulaire d'activation */
-        .activation-form { margin-top: 30px; padding-top: 20px; border-top: 1px dashed #ccc; }
-        label { display: block; margin-top: 15px; font-weight: bold; }
-        input[type="text"] { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .activation-btn { background-color: #7289da; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px; }
+        
+        /* Styles pour le nouveau système de ticket */
+        .activation-box { 
+            margin-top: 30px; 
+            padding: 20px; 
+            border: 1px solid #7289da; 
+            border-radius: 5px; 
+            background-color: #e6e9f2; 
+        }
+        .step { margin-top: 15px; }
+        .step h3 { color: #7289da; margin-bottom: 5px; }
+        #guild-id-input { 
+            width: 100%; 
+            padding: 10px; 
+            margin: 5px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            box-sizing: border-box; 
+            font-family: monospace;
+        }
+        .copy-btn { 
+            background-color: #f39c12; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            margin-top: 10px;
+        }
+        .ticket-btn {
+            background-color: #e74c3c; /* Couleur Discord pour action */
+            color: white; 
+            border: none; 
+            padding: 12px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            margin-top: 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>💎 Nexus AI Premium - 2€ / mois</h1>
-        <p>Merci de soutenir le développement de Nexus AI ! Le statut Premium est activé manuellement dans les 24h après le paiement.</p>
+        <p>Merci de soutenir le développement de Nexus AI ! L'activation du statut Premium se fait via un ticket sur notre serveur de support après le paiement.</p>
         
         <h2>Avantages pour votre Serveur :</h2>
         <ul class="feature-list">
@@ -34,26 +69,51 @@
 
         <a href="VOTRE_LIEN_DE_PAIEMENT" target="_blank" class="action-button">💳 Étape 1 : Payer 2€ maintenant</a>
 
-        <div class="activation-form">
-            <h2>Étape 2 : Confirmer l'Activation</h2>
+        <div class="activation-box">
+            <h2>Étape 2 : Activer via Ticket Support</h2>
             
             <div class="warning">
-                IMPORTANT : Vous devez avoir payé 2€ avant de remplir ce formulaire.
+                IMPORTANT : L'administrateur vérifiera le paiement (2€) dans les 24h.
             </div>
 
-            <form action="URL_DE_VOTRE_GOOGLE_FORM" target="_blank" method="POST">
-                
-                <label for="guild_id">ID de votre Serveur Discord (Obligatoire) :</label>
-                <input type="text" id="guild_id" name="entry.123456789" required placeholder="Clic droit sur le serveur > Copier l'ID (Mode Développeur requis)">
-                
-                <label for="username">Votre Nom d'Utilisateur Discord (pour vérification) :</label>
-                <input type="text" id="username" name="entry.987654321" required placeholder="Ex: sti_dev#1234">
+            <div class="step">
+                <h3>1. Préparez votre ID de Serveur</h3>
+                <p>Copiez l'ID du serveur que vous voulez rendre Premium et collez-le ci-dessous. (Le mode développeur Discord est requis).</p>
+                <input type="text" id="guild-id-input" placeholder="Collez l'ID de votre serveur ici (Ex: 1430902760148045895)">
+                <button class="copy-btn" onclick="copyGuildId()">Copier l'ID</button>
+            </div>
 
-                <button type="submit" class="activation-btn">Envoyer les Infos et Activer</button>
-                <small style="display: block; margin-top: 10px;">L'activation est traitée manuellement dans les 24 heures par l'administrateur.</small>
-            </form>
+            <div class="step">
+                <h3>2. Ouvrez un Ticket</h3>
+                <a href="VOTRE_LIEN_INVITATION_SERVEUR_SUPPORT" target="_blank" class="ticket-btn">💬 Ouvrir un Ticket d'Activation</a>
+                <small style="display: block; margin-top: 10px;">Une fois sur le serveur, ouvrez un ticket d'achat. Collez l'ID de votre serveur dans le ticket et joignez une preuve de paiement (capture d'écran).</small>
+            </div>
         </div>
-
     </div>
+    
+    <script>
+        function copyGuildId() {
+            const input = document.getElementById('guild-id-input');
+            
+            if (input.value.trim() === "") {
+                alert("Veuillez coller l'ID de votre serveur dans la zone de texte avant de copier.");
+                return;
+            }
+            
+            // Sélectionne et copie le texte
+            input.select();
+            input.setSelectionRange(0, 99999); // Pour les mobiles
+            document.execCommand("copy");
+            
+            // Feedback visuel (simple)
+            const originalText = input.placeholder;
+            input.placeholder = "ID COPIÉ ! ✅";
+            
+            // Remet le texte original après un court délai
+            setTimeout(() => {
+                input.placeholder = originalText;
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
