@@ -7,11 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d1117; /* Dark background */
-            --primary-color: #5865F2; /* Discord-like blue */
-            --secondary-color: #20b2aa; /* Light Sea Green */
-            --text-color: #e6edf3; /* Light grey for text */
-            --border-color: #30363d; /* Darker border */
+            --bg-color: #0d1117;
+            --primary-color: #5865F2;
+            --secondary-color: #20b2aa;
+            --text-color: #e6edf3;
+            --border-color: #30363d;
             --gradient-start: #16262e;
             --gradient-end: #0a1118;
         }
@@ -97,8 +97,8 @@
             flex-wrap: wrap;
         }
         
-        /* Style des Boutons */
-        .action-button, .invite-button {
+        /* Style du bouton Invite */
+        .invite-button {
             display: inline-block;
             color: white;
             padding: 12px 25px;
@@ -108,18 +108,6 @@
             font-size: 1.1em;
             transition: all 0.3s ease;
             box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-        }
-        
-        .action-button {
-            background: linear-gradient(90deg, #2ecc71, #27ae60);
-        }
-        .action-button:hover {
-            transform: scale(1.03);
-            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.6);
-            background: linear-gradient(90deg, #27ae60, #2ecc71);
-        }
-
-        .invite-button {
             background: linear-gradient(90deg, #5865F2, #4b58b4);
         }
         .invite-button:hover {
@@ -127,8 +115,12 @@
             box-shadow: 0 4px 12px rgba(88, 101, 242, 0.6);
             background: linear-gradient(90deg, #4b58b4, #5865F2);
         }
+
+        /* Style du conteneur PayPal pour le centrer */
+        #paypal-button-container-P-73V22856XG481950WND5KUMY {
+            min-width: 250px;
+        }
         
-        /* === NOUVEAU STYLE POUR LE WIDGET TOP.GG === */
         .vote-section {
             text-align: center;
             margin: 40px 0;
@@ -141,9 +133,7 @@
             height: auto;
             border-radius: 8px;
         }
-        /* =========================================== */
-
-
+        
         .activation-box { 
             margin-top: 50px; 
             padding: 30px; 
@@ -236,7 +226,8 @@
             h3 { font-size: 1.2em; }
             .feature-list li { flex: 1 1 100%; }
             .call-to-action { flex-direction: column; gap: 10px; }
-            .action-button, .invite-button { width: 100%; box-sizing: border-box; }
+            .invite-button { width: 100%; box-sizing: border-box; }
+            #paypal-button-container-P-73V22856XG481950WND5KUMY { width: 100%; }
         }
     </style>
 </head>
@@ -254,33 +245,9 @@
         </ul>
 
         <div class="call-to-action">
-            <a href="https://discord.com/oauth2/authorize?client_id=1423684403019780116&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="invite-button">🤖 Inviter Nexus AI sur votre Serveur</a>
-            <div class="call-to-action">
-    <a href="VOTRE_LIEN_INVITATION_BOT" target="_blank" class="invite-button">🤖 Inviter Nexus AI sur votre Serveur</a>
-    
-    <div id="paypal-button-container-P-73V22856XG481950WND5KUMY" style="min-width: 250px;"></div>
-</div>
-<small style="display: block; text-align: center; margin-top: 15px; color: #a0aec0;">*Assurez-vous d'abord que le bot est sur votre serveur.</small>
-<script src="https://www.paypal.com/sdk/js?client-id=ARkhfHXZXz0ayz32CL-EpnCNuH6qFCuxTcrxC2Ne3fga9mG_rKf-FyPeshTNDwxliExDV4fvKB3fHLpf&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-<script>
-    paypal.Buttons({
-        style: {
-            shape: 'rect',
-            color: 'blue', // J'ai mis "blue" pour un look plus moderne que "gold"
-            layout: 'vertical',
-            label: 'subscribe'
-        },
-        createSubscription: function(data, actions) {
-            // C'est ici que nous allons ajouter l'ID du serveur !
-            return actions.subscription.create({
-                plan_id: 'P-73V22856XG481950WND5KUMY'
-            });
-        },
-        onApprove: function(data, actions) {
-            alert("Abonnement réussi ! Votre Premium sera activé sous peu.");
-        }
-    }).render('#paypal-button-container-P-73V22856XG481950WND5KUMY');
-</script>
+            <a href="VOTRE_LIEN_INVITATION_BOT" target="_blank" class="invite-button">🤖 Inviter Nexus AI sur votre Serveur</a>
+            
+            <div id="paypal-button-container-P-73V22856XG481950WND5KUMY"></div>
         </div>
         <small style="display: block; text-align: center; margin-top: 15px; color: #a0aec0;">*Assurez-vous d'abord que le bot est sur votre serveur.</small>
         
@@ -294,26 +261,27 @@
             <h2>✨ Étape d'Activation Premium :</h2>
             
             <div class="warning">
-                IMPORTANT : L'activation est confirmée manuellement dans les 24h ouvrables après réception du paiement.
+                IMPORTANT : Le Premium sera activé automatiquement une fois le paiement confirmé par PayPal.
             </div>
 
             <div class="step">
-                <h3>1. Préparez votre ID de Serveur</h3>
-                <p style="text-align: center;">Collez l'ID du serveur que vous souhaitez rendre Premium ci-dessous. (Activez le mode développeur sur Discord).</p>
-                <input type="text" id="guild-id-input" placeholder="Ex: 1430902760148045895">
+                <h3>1. ID de Serveur (Obligatoire)</h3>
+                <p style="text-align: center;">**Avant de cliquer sur le bouton PayPal**, collez l'ID du serveur que vous souhaitez rendre Premium ci-dessous.</p>
+                <input type="text" id="guild-id-input" name="guild_id" placeholder="Collez l'ID de votre serveur ici (Ex: 1430902760148045895)">
                 <button class="copy-btn" onclick="copyGuildId()">Copier l'ID du Serveur</button>
             </div>
 
             <div class="step">
-                <h3>2. Ouvrez un Ticket de Support</h3>
-                <p style="text-align: center;">Cliquez ci-dessous pour rejoindre notre serveur de support et ouvrir un ticket.</p>
-                <a href="https://discord.gg/wWBFKCgnsP" target="_blank" class="ticket-btn">💬 Ouvrir un Ticket d'Activation</a>
-                <small>Dans le ticket, **collez l'ID de votre serveur** et joignez une preuve de paiement (capture d'écran de la transaction).</small>
+                <h3>2. Ouvrez un Ticket (En cas de problème)</h3>
+                <p style="text-align: center;">Si l'activation n'est pas automatique après 5 minutes, ouvrez un ticket de support.</p>
+                <a href="VOTRE_LIEN_INVITATION_SERVEUR_SUPPORT" target="_blank" class="ticket-btn">💬 Ouvrir un Ticket de Support</a>
+                <small>Dans le ticket, indiquez l'ID de votre serveur et la date de votre paiement.</small>
             </div>
         </div>
     </div>
     
     <script>
+        // Fonction JavaScript pour copier l'ID de serveur
         function copyGuildId() {
             const input = document.getElementById('guild-id-input');
             
@@ -333,6 +301,40 @@
                 input.placeholder = originalPlaceholder;
             }, 2000);
         }
+
+        // === SCRIPT PAYPAL INTÉGRÉ ET MODIFIÉ ===
+        // Le SDK PayPal doit être chargé avant le script
+    </script>
+    <script src="https://www.paypal.com/sdk/js?client-id=ARkhfHXZXz0ayz32CL-EpnCNuH6qFCuxTcrxC2Ne3fga9mG_rKf-FyPeshTNDwxliExDV4fvKB3fHLpf&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+    <script>
+        paypal.Buttons({
+            style: {
+                shape: 'rect',
+                color: 'blue', 
+                layout: 'vertical',
+                label: 'subscribe'
+            },
+            createSubscription: function(data, actions) {
+                // 1. Récupérer l'ID du serveur entré par l'utilisateur
+                const guildIdInput = document.getElementById('guild-id-input');
+                const guildId = guildIdInput ? guildIdInput.value.trim() : null;
+
+                if (!guildId || guildId.length < 18 || isNaN(guildId)) {
+                    // 2. Bloquer l'action si l'ID est invalide
+                    alert("Erreur: Veuillez entrer un ID de Serveur Discord valide dans la section '1. ID de Serveur (Obligatoire)' avant de vous abonner.");
+                    return;
+                }
+
+                // 3. Créer l'abonnement en incluant l'ID du serveur dans custom_id
+                return actions.subscription.create({
+                    plan_id: 'P-73V22856XG481950WND5KUMY',
+                    custom_id: guildId // CECI ENVOIE L'ID AU WEBHOOK DU BOT
+                });
+            },
+            onApprove: function(data, actions) {
+                alert("Abonnement réussi ! L'activation est automatique. Si le Premium n'est pas actif dans 5 minutes, ouvrez un ticket.");
+            }
+        }).render('#paypal-button-container-P-73V22856XG481950WND5KUMY');
     </script>
 </body>
 </html>
